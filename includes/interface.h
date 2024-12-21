@@ -8,6 +8,6 @@ extern const char* _engine_name;
 
 // database constants
 extern const char* _add_new_trader;
-extern const char* _get_trader;
+extern const char* _get_trader_details;
 extern const char* _get_if_trader_exists;
 #endif
