@@ -6,7 +6,7 @@
 #include "../src/sqlite3.h"
 
 sqlite3* initialise_database_file(const char *db_file);
-int add_nonexisting_user(sqlite3* db, char *email, char* password);
-int confirm_existing_user(sqlite3* db, char *email);
+int add_nonexisting_user(sqlite3* db, const char *email, const char* password);
+int confirm_existing_user(sqlite3* db, const char *email);
 
 #endif
