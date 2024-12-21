@@ -28,11 +28,16 @@ void add_new_trader(GtkApplication* app, gpointer user_data){
     gtk_widget_set_hexpand(box, true);
 
     GtkWidget* ntrader_grid = gtk_grid_new();
-    gtk_widget_set_margin_top(ntrader_grid, 270);
+    gtk_widget_set_margin_top(ntrader_grid, 100);
     gtk_widget_set_valign(ntrader_grid, GTK_ALIGN_CENTER);
     gtk_widget_set_halign(ntrader_grid, GTK_ALIGN_CENTER);
 
-    GtkWidget* register_label = gtk_label_new("Yael Account");
+    GtkWidget* logo_image = gtk_image_new_from_file("logo.png");
+    gtk_grid_attach(GTK_GRID(ntrader_grid), logo_image, 3, 1,1,1);
+    gtk_image_set_pixel_size(GTK_IMAGE(logo_image),100);
+    gtk_widget_set_margin_bottom(logo_image, 20);
+
+    GtkWidget* register_label = gtk_label_new("Trading Terminal");
     gtk_grid_attach(GTK_GRID(ntrader_grid), register_label, 3,2,1,1);
     gtk_widget_set_margin_bottom(register_label,20);
     gtk_widget_add_css_class(register_label,"body-text");
@@ -55,10 +60,10 @@ void add_new_trader(GtkApplication* app, gpointer user_data){
     user_model->email = email_entry;
     user_model->password = passw_entry;
 
-    GtkWidget* submit_button = gtk_button_new_with_label("Register");
+    GtkWidget* submit_button = gtk_button_new_with_label("Request terminal access");
     gtk_grid_attach(GTK_GRID (ntrader_grid), submit_button, 3,7,1,1);
     gtk_widget_set_margin_top(submit_button, 5);
-    gtk_widget_add_css_class(submit_button, "text");
+    gtk_widget_add_css_class(submit_button, "core");
 
     gtk_box_append(GTK_BOX (box), ntrader_grid);
     gtk_window_set_child(GTK_WINDOW (window), box);
