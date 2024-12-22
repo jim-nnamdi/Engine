@@ -3,17 +3,22 @@
 
 sqlite3* initialise_database_file(const char *db_file) {
     sqlite3* _database_object;
-    char** base_error;
+    char* base_error = NULL;
     int _database_open = sqlite3_open(db_file, &_database_object);
-    if (!_database_object) 
+    if (_database_open != SQLITE_OK) {
         sqlite3_errmsg(_database_object); 
-        sqlite3_close(_database_object); return NULL;
-    int users_table = sqlite3_exec(_database_object, "create table if not exist users (id integer primary key, email text, password text)",0, 0, base_error);
-    if (users_table != SQLITE_OK) 
-        sqlite3_errmsg(_database_object); sqlite3_free(base_error);
-        sqlite3_close(_database_object); return NULL;
+        sqlite3_close(_database_object); 
+        return NULL;
+    }
+    _database_open = sqlite3_exec(_database_object, "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, email TEXT NOT NULL, password TEXT NOT NULL)",0, 0, &base_error);
+    if (_database_open != SQLITE_OK) {
+        // printf("Failed to execute query: %s\n", base_error);
+        sqlite3_errmsg(_database_object); 
+        sqlite3_free(base_error);
+        sqlite3_close(_database_object); 
+        return NULL;
+    }
     return _database_object;
-
 }
 
 int add_nonexisting_user(sqlite3* db, const char *email, const char* password){
@@ -26,6 +31,7 @@ int add_nonexisting_user(sqlite3* db, const char *email, const char* password){
     result_stmt = sqlite3_step(stmt);
     if (result_stmt != SQLITE_DONE) sqlite3_errmsg(db);
     sqlite3_finalize(stmt);
+    printf("stmt id: '%d'\n", result_stmt);
     return result_stmt == SQLITE_DONE ? SQLITE_OK : result_stmt;
 }
 

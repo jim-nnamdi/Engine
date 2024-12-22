@@ -4,6 +4,12 @@
 #include "../includes/interface.h"
 #include "../database/database.h"
 
+#include <stdio.h>
+#include <stdlib.h>
+
+#define ERROR_MSG(msg) \
+    printf("Error in file %s, line %d: %s\n", __FILE__, __LINE__, msg)
+
 static void on_add_new_trader(GtkButton* button, gpointer user_data){
     User_Data_Model* user_model = (User_Data_Model *) user_data;
     GtkEntryBuffer* email_entry_buffer = gtk_entry_get_buffer(GTK_ENTRY(user_model->email));
@@ -12,10 +18,20 @@ static void on_add_new_trader(GtkButton* button, gpointer user_data){
     GtkEntryBuffer* passw_entry_buffer = gtk_entry_get_buffer(GTK_ENTRY(user_model->password));
     const char* raw_passw_data = gtk_entry_buffer_get_text(passw_entry_buffer);
 
-    g_print("email passed: '%s'", raw_email_data);
-    sqlite3* _fetch_db_config = initialise_database_file("_trading_.db");
-    int add_new_trader = add_nonexisting_user(_fetch_db_config, raw_email_data, raw_passw_data);
-    if (add_new_trader) g_print("registration successful");
+    g_print("email passed: '%s'\n", raw_email_data);
+    sqlite3* db;
+    int rc = sqlite3_open(_database_name,&db);
+    if (rc != SQLITE_OK) printf("%s\n", sqlite3_errmsg(db));
+    sqlite3_stmt* stmt; int result_stmt;
+    rc = sqlite3_prepare_v2(db,_add_new_trader, -1, &stmt, NULL);
+    if (rc != SQLITE_OK) printf("%s\n","insert did not work"); sqlite3_errmsg(db);
+    sqlite3_bind_text(stmt, 1, raw_email_data, -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 2, raw_passw_data, -1, SQLITE_STATIC); 
+    rc = sqlite3_step(stmt);
+    if (rc != SQLITE_DONE) 
+        printf("%s\n", "could not step properly");
+        sqlite3_errmsg(db);
+    sqlite3_finalize(stmt);
 }
 
 void add_new_trader(GtkApplication* app, gpointer user_data){
