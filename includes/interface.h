@@ -10,4 +10,5 @@ extern const char* _engine_name;
 extern const char* _add_new_trader;
 extern const char* _get_trader_details;
 extern const char* _get_if_trader_exists;
+extern const char* _database_name;
 #endif
