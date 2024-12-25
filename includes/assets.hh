@@ -4,7 +4,10 @@
 #include <gtk/gtk.h>
 #include "interface.hh"
 
-static void on_sidebar_activated(GtkListBox *listbox, GtkListBoxRow *listboxrow, GtkNotebook *notebook);
-void asset_screen(GtkApplication *app, gpointer user_data);
+class Asset{
+    public:
+    static void on_sidebar_activated(GtkListBox *listbox, GtkListBoxRow *listboxrow, GtkNotebook *notebook);
+    void asset_screen(GtkApplication *app, gpointer user_data);
+};
 
 #endif
