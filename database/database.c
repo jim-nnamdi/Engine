@@ -48,3 +48,11 @@ int confirm_existing_user(sqlite3* db, const char *email) {
     sqlite3_finalize(stmt);
     return cuser_stmt == SQLITE_DONE ? SQLITE_OK : cuser_stmt;
 }
+
+int get_all_stocks(sqlite3 *db)
+{
+    int stocks;
+    stocks = sqlite3_exec(db, "select * from stocks",0, 0, NULL);
+    if (stocks != SQLITE_OK) sqlite3_errmsg(db); sqlite3_close(db); return EXIT_FAILURE; 
+    return 0;
+}

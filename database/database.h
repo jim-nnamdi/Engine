@@ -8,5 +8,5 @@
 sqlite3* initialise_database_file(const char *db_file);
 int add_nonexisting_user(sqlite3* db, const char *email, const char* password);
 int confirm_existing_user(sqlite3* db, const char *email);
-
+int get_all_stocks(sqlite3* db);
 #endif
