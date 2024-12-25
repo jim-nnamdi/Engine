@@ -6,6 +6,9 @@
 
 class Asset{
     public:
+    Asset();
+    Asset(const Asset& asset);
+    Asset(Asset&&);
     static void on_sidebar_activated(GtkListBox *listbox, GtkListBoxRow *listboxrow, GtkNotebook *notebook);
     void asset_screen(GtkApplication *app, gpointer user_data);
 };

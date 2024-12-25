@@ -8,7 +8,8 @@
 class Database {
     public:
     Database();
-    Database(Database&);
+    Database(Database&&);
+    Database(const Database& database);
 
     sqlite3 *initialise_database_file(const char *db_file);
     int add_nonexisting_user(sqlite3 *db, const char *email, const char *password);
