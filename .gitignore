@@ -5,3 +5,4 @@ main
 style.css
 logo.png
 # trading.png
+src/sqlite3.h

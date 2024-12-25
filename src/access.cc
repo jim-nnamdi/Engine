@@ -1,15 +1,15 @@
 #include <gtk/gtk.h>
 #include "sqlite3.h"
-#include "../includes/access.h"
-#include "../includes/interface.h"
-#include "../database/database.h"
+#include "../includes/access.hh"
+#include "../includes/interface.hh"
+#include "../database/database.hh"
+#include "../security/safe.hh"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <sodium.h>
 #include <string.h>
 
-#include "../security/safe.h"
 
 #define ERROR_MSG(msg) \
     printf("Error in file %s, line %d: %s\n", __FILE__, __LINE__, msg)

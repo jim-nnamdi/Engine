@@ -1,5 +1,5 @@
 #include <gtk/gtk.h>
-#include "../includes/assets.h"
+#include "../includes/assets.hh"
 
 static void on_sidebar_activated(GtkListBox *listbox, GtkListBoxRow *listboxrow, GtkNotebook *notebook) 
 {

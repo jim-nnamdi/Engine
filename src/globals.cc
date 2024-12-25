@@ -1,5 +1,5 @@
 
-#include "../includes/interface.h"
+#include "../includes/interface.hh"
 
 int _screen_width = 700;
 int _screen_height = 700;
