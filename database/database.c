@@ -1,5 +1,5 @@
-#include "database.hh"
-#include "../includes/interface.hh"
+#include "database.h"
+#include "../includes/interface.h"
 
 sqlite3 *initialise_database_file(const char *db_file)
 {

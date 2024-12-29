@@ -1,9 +1,9 @@
 #include <gtk/gtk.h>
 #include "sqlite3.h"
-#include "../includes/access.hh"
-#include "../includes/interface.hh"
-#include "../database/database.hh"
-#include "../security/safe.hh"
+#include "../includes/access.h"
+#include "../includes/interface.h"
+#include "../database/database.h"
+#include "../security/safe.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -14,7 +14,7 @@
 #define ERROR_MSG(msg) \
     printf("Error in file %s, line %d: %s\n", __FILE__, __LINE__, msg)
 
-void Access::on_add_new_trader(GtkButton *button, gpointer user_data)
+static void on_add_new_trader(GtkButton *button, gpointer user_data)
 {
     User_Data_Model *user_model = (User_Data_Model *)user_data;
     GtkEntryBuffer *email_entry_buffer = gtk_entry_get_buffer(GTK_ENTRY(user_model->email));
@@ -54,7 +54,7 @@ void Access::on_add_new_trader(GtkButton *button, gpointer user_data)
     sqlite3_finalize(stmt);
 }
 
-void Access::add_new_trader(GtkApplication *app, gpointer user_data)
+void add_new_trader(GtkApplication *app, gpointer user_data)
 {
     GtkWidget *window = gtk_application_window_new(app);
     gtk_window_set_title(GTK_WINDOW(window), _engine_name);

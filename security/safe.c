@@ -1,4 +1,4 @@
-#include "safe.hh"
+#include "safe.h"
 #include <string.h>
 
 int encrypt_password(const char* password, unsigned char* ciphertext, unsigned char* nonce, unsigned char* key) {

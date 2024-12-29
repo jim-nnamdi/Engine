@@ -1,11 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../includes/access.hh"
-#include <memory>
+#include "../includes/access.h"
 
 void activate(GtkApplication* app, gpointer user_data) {
-    std::unique_ptr<Access> access = std::make_unique<Access>();
-    access->add_new_trader(app, user_data);
+    add_new_trader(app, user_data);
 }
 
 int main(int argc, char **argv) {
