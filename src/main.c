@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../includes/access.hh"
+#include "../includes/access.h"
 
 void activate(GtkApplication* app, gpointer user_data) {
     add_new_trader(app, user_data);

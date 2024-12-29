@@ -1,9 +1,9 @@
 #include <gtk/gtk.h>
 #include "sqlite3.h"
-#include "../includes/access.hh"
-#include "../includes/interface.hh"
-#include "../database/database.hh"
-#include "../security/safe.hh"
+#include "../includes/access.h"
+#include "../includes/interface.h"
+#include "../database/database.h"
+#include "../security/safe.h"
 
 #include <stdio.h>
 #include <stdlib.h>

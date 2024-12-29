@@ -5,7 +5,7 @@ LIBS = $(shell pkg-config --libs gtk4 libsodium) -lsqlite3
 
 # Target executable and source file
 TARGET = main
-SRC = ./src/main.cc ./src/access.cc ./src/globals.cc ./database/database.cc ./security/safe.cc
+SRC = ./src/main.c ./src/access.c ./src/globals.c ./database/database.c ./security/safe.c
 
 # Build target
 all: $(TARGET)
