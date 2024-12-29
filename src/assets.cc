@@ -1,5 +1,5 @@
 #include <gtk/gtk.h>
-#include "../includes/assets.h"
+#include "../includes/assets.hh"
 
 static void on_sidebar_activated(GtkListBox *listbox, GtkListBoxRow *listboxrow, GtkNotebook *notebook) 
 {
@@ -29,7 +29,7 @@ void asset_screen(GtkApplication *app, gpointer user_data) {
     gtk_paned_set_end_child(GTK_PANED(asset_pane), notebook);
     for (int z = 0; z < sizeof(items)/sizeof(items[0]); z++){
         char charbuffer[20];
-        snprintf(charbuffer, sizeof(charbuffer), "Tab %d", z);
+        snprintf(charbuffer, sizeof(charbuffer), "Asset %d", z);
         GtkWidget* label = gtk_label_new(charbuffer);
         GtkWidget* content = gtk_label_new(charbuffer);
         gtk_notebook_append_page(GTK_NOTEBOOK(notebook),content, label);
