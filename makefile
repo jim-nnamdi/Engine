@@ -1,5 +1,5 @@
 # Compiler and flags
-CC = gcc
+CC = g++ -std=c++17
 CFLAGS = $(shell pkg-config --cflags gtk4 libsodium)
 LIBS = $(shell pkg-config --libs gtk4 libsodium) -lsqlite3 
 

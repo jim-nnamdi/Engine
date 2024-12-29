@@ -14,7 +14,7 @@
 #define ERROR_MSG(msg) \
     printf("Error in file %s, line %d: %s\n", __FILE__, __LINE__, msg)
 
-static void on_add_new_trader(GtkButton *button, gpointer user_data)
+void Access::on_add_new_trader(GtkButton *button, gpointer user_data)
 {
     User_Data_Model *user_model = (User_Data_Model *)user_data;
     GtkEntryBuffer *email_entry_buffer = gtk_entry_get_buffer(GTK_ENTRY(user_model->email));
@@ -54,7 +54,7 @@ static void on_add_new_trader(GtkButton *button, gpointer user_data)
     sqlite3_finalize(stmt);
 }
 
-void add_new_trader(GtkApplication *app, gpointer user_data)
+void Access::add_new_trader(GtkApplication *app, gpointer user_data)
 {
     GtkWidget *window = gtk_application_window_new(app);
     gtk_window_set_title(GTK_WINDOW(window), _engine_name);
