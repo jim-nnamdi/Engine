@@ -7,3 +7,7 @@ logo.png
 # trading.png
 src/sqlite3.h
 makefile
+src/access.o
+src/assets.o
+src/globals.o
+src/main.o
