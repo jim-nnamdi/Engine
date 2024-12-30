@@ -51,3 +51,4 @@ void asset_screen(GtkApplication *app, gpointer user_data)
     g_signal_connect(listbox_sidebar, "row-activated", G_CALLBACK(on_sidebar_activated), notebook);
     gtk_window_present(GTK_WINDOW(window));
 }
+
