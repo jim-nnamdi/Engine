@@ -1,8 +1,8 @@
 
 #include "../includes/interface.h"
 
-int _screen_width = 700;
-int _screen_height = 600;
+int _screen_width = 900;
+int _screen_height = 500;
 const char* _engine_name = "Trading engine";
 
 const char* _add_new_trader = "INSERT INTO USERS (email, password) VALUES (?, ?)";
