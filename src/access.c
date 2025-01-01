@@ -74,7 +74,7 @@ void add_new_trader(GtkApplication *app, gpointer user_data)
     gtk_image_set_pixel_size(GTK_IMAGE(logo_image), 100);
     gtk_widget_set_margin_bottom(logo_image, 20);
 
-    GtkWidget *register_label = gtk_label_new("Trading Terminal");
+    GtkWidget *register_label = gtk_label_new("Farming Terminal");
     gtk_grid_attach(GTK_GRID(ntrader_grid), register_label, 3, 2, 1, 1);
     gtk_widget_set_margin_bottom(register_label, 20);
     gtk_widget_add_css_class(register_label, "body-text");
