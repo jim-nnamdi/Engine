@@ -4,7 +4,7 @@
 #include "../includes/assets.h"
 
 void activate(GtkApplication* app, gpointer user_data) {
-    asset_screen(app, user_data);
+    add_new_trader(app, user_data);
 }
 
 int main(int argc, char **argv) {

@@ -145,7 +145,7 @@ void asset_screen(GtkApplication *app, gpointer user_data)
     gtk_paned_set_start_child(GTK_PANED(asset_pane), listbox_sidebar);
     gtk_widget_add_css_class(listbox_sidebar, "sidebar");
 
-    const char *items[] = {"Apple", "Microsoft", "Nvidia", "Tesla", "Facebook"};
+    const char *items[] = {"Apple", "Microsoft", "Nvidia", "Walmart", "Rockstar", "DataBricks", "Facebook", "Costco", "ToeiAnimation"};
     for (int i = 0; i < sizeof(items) / sizeof(items[0]); i++)
     {
         GtkWidget *label = gtk_label_new(items[i]);
@@ -174,7 +174,13 @@ void asset_screen(GtkApplication *app, gpointer user_data)
         /* Create a drawing area */
         drawing_area = gtk_drawing_area_new();
         gtk_drawing_area_set_draw_func(GTK_DRAWING_AREA(drawing_area), on_draw, trend_data, NULL);
+
+        // GtkWidget* apane = gtk_paned_new(GTK_ORIENTATION_HORIZONTAL);
+        // gtk_paned_set_start_child(apane, label);
+        // gtk_paned_set_end_child(GTK_PANED(apane),drawing_area);
+
         gtk_notebook_append_page(GTK_NOTEBOOK(notebook), drawing_area, label);
+
         // gtk_notebook_append_page(GTK_NOTEBOOK(notebook), gtk_label_new("Testing"), label);
     }
     g_signal_connect(listbox_sidebar, "row-activated", G_CALLBACK(on_sidebar_activated), notebook);
